@@ -1,0 +1,140 @@
+﻿<div class="sidebar" data-background-color="dark">
+    <div class="sidebar-logo">
+        <!-- Logo Header -->
+        <div class="logo-header" data-background-color="dark">
+            <a href="index.html" class="logo">
+                <img src="~/img/LunaSystem.png"
+                     alt="navbar brand"
+                     class="navbar-brand"
+                     height="20" />
+            </a>
+            <div class="nav-toggle">
+                <button class="btn btn-toggle toggle-sidebar">
+                    <i class="gg-menu-right"></i>
+                </button>
+                <button class="btn btn-toggle sidenav-toggler">
+                    <i class="gg-menu-left"></i>
+                </button>
+            </div>
+            <button class="topbar-toggler more">
+                <i class="gg-more-vertical-alt"></i>
+            </button>
+        </div>
+        <!-- End Logo Header -->
+    </div>
+    <div class="sidebar-wrapper scrollbar scrollbar-inner">
+        <div class="sidebar-content">
+            <ul class="nav nav-secondary">
+                <li class="nav-item active">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                    <h4 class="text-section">Dashboard</h4>
+                </li>
+                <li class="nav-section">
+                    <span class="sidebar-mini-icon">
+                        <i class="fa fa-ellipsis-h"></i>
+                    </span>
+                </li>
+                <li class="nav-item">
+                    <a asp-page="/Home/index" class="nav-link">
+                        <i class="nav-icon fas fa-home"></i>
+                        <p>Home</p>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarVentas">
+                        <i class="fas fa-th-list"></i>
+                        <p>Ventas</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="sidebarVentas">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a asp-page="/Sales/NewSales" class="nav-link">
+                                    <i class="fas fa-shopping-bag nav-icon"></i>
+                                    <p>Vender</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-page="/Sales/sales-list" class="nav-link">
+                                    <i class="fas fa-list-alt nav-icon"></i>
+                                    <p>Lista de Ventas</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarProductos">
+                        <i class="fas fa-th-list"></i>
+                        <p>Productos</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="sidebarProductos">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a asp-page="/Products/Newproduct" class="nav-link">
+                                    <i class="fas fa-box-open nav-icon"></i>
+                                    <p>Nuevo Producto</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-page="/Products/product-list" class="nav-link">
+                                    <i class="fas fa-file-alt nav-icon"></i>
+                                    <p>Lista de Productos</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarClientes">
+                        <i class="fas fa-th-list"></i>
+                        <p>Clientes</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="sidebarClientes">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a asp-page="/Clients/NewClients" class="nav-link">
+                                    <i class="fas fa-user-plus nav-icon"></i>
+                                    <p>Nuevo Cliente</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-page="/Clients/clients-list" class="nav-link">
+                                    <i class="fas fa-list-alt nav-icon"></i>
+                                    <p>Lista de Clientes</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+                <li class="nav-item">
+                    <a data-bs-toggle="collapse" href="#sidebarEmpleados">
+                        <i class="fas fa-th-list"></i>
+                        <p>Empleados</p>
+                        <span class="caret"></span>
+                    </a>
+                    <div class="collapse" id="sidebarEmpleados">
+                        <ul class="nav nav-collapse">
+                            <li>
+                                <a asp-page="/Employees/NewEmployees" class="nav-link">
+                                    <i class="fas fa-user-plus nav-icon"></i>
+                                    <p>Nuevo Empleado</p>
+                                </a>
+                            </li>
+                            <li>
+                                <a asp-page="/Employees/Employees-list" class="nav-link">
+                                    <i class="fas fa-list-alt nav-icon"></i>
+                                    <p>Lista de Empleados</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,92 @@
+﻿@using SalesWebSystem.Application.Utilities.Functions
+
+<nav class="navbar navbar-header navbar-header-transparent navbar-expand-lg border-bottom">
+    <div class="container-fluid">
+        <div class="navbar navbar-header-left navbar-expand-lg navbar-form nav-search p-0 d-none d-lg-flex">
+            <div class="input-group">
+                <div class="input-group-prepend">
+                    <button type="submit" class="btn btn-search pe-1">
+                        <i class="fa fa-search search-icon"></i>
+                    </button>
+                </div>
+                <input type="text" placeholder="Search ..." class="form-control" />
+            </div>
+        </div>
+
+        <ul class="navbar-nav topbar-nav ms-md-auto align-items-center">
+            <li class="nav-item topbar-icon dropdown hidden-caret border border-1 bg-secondary-gradient px-3">
+                <a class="nav-link" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <span class="text text-white">Accesos Rapidos</span>
+                </a>
+                <div class="dropdown-menu quick-actions animated fadeIn">
+                    <div class="quick-actions-header">
+                        <span class="title mb-1"></span>
+                    </div>
+                    <div class="quick-actions-scroll scrollbar-outer">
+                        <div class="quick-actions-items">
+                            <div class="row m-0">
+                                <a class="col-6 col-md-4 p-0" href="#">
+                                    <div class="quick-actions-item">
+                                        <div class="avatar-item bg-danger rounded-circle">
+                                            <i class="far fa-calendar-alt"></i>
+                                        </div>
+                                        <span class="text">Calendar</span>
+                                    </div>
+                                </a>
+                                <a class="col-6 col-md-4 p-0" href="#">
+                                    <div class="quick-actions-item">
+                                        <div class="avatar-item bg-info rounded-circle">
+                                            <i class="fas fa-file-excel"></i>
+                                        </div>
+                                        <span class="text">Reports</span>
+                                    </div>
+                                </a>
+                                <a class="col-6 col-md-4 p-0" href="#">
+                                    <div class="quick-actions-item">
+                                        <div class="avatar-item bg-secondary rounded-circle">
+                                            <i class="fas fa-credit-card"></i>
+                                        </div>
+                                        <span class="text">Payments</span>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item topbar-user dropdown hidden-caret">
+                <a class="dropdown-toggle profile-pic" data-bs-toggle="dropdown" href="#" aria-expanded="false">
+                    <div class="avatar-sm">
+                        <img src="~/img/profile.png" alt="..." class="avatar-img rounded-circle" />
+                    </div>
+                    <span class="profile-username">
+                        <img src="~/img/flags/do.png" /> <span class="op-7">Hola</span>
+                    </span>
+                </a>
+                <ul class="dropdown-menu dropdown-user animated fadeIn">
+                    <div class="dropdown-user-scroll scrollbar-outer">
+                    <li>
+                        <div class="user-box">
+                            <div class="avatar-lg">
+                                <img src="~/img/profile.png" alt="image profile" class="avatar-img rounded" />
+                            </div>
+                            <div class="u-text">
+                                <p class="text-muted">
+                                        @GlobalsVariables.UserName
+                                </p>
+                            </div>
+                        </div>
+                    </li>
+                    <li>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Mi perfil</a>
+                        <a class="dropdown-item" href="#">Mi Balance</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="#">Cerrar Sesion</a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+</nav>
