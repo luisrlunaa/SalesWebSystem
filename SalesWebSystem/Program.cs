@@ -1,10 +1,15 @@
-﻿using Westwind.AspNetCore.LiveReload;
+﻿using SalesWebSystem.Application.Services;
+using Westwind.AspNetCore.LiveReload;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
 builder.Services.AddLiveReload(); // Add LiveReload service
+
+var configurationsApp = new ConfigurationsApp();
+configurationsApp.ServicesApp(builder.Services);
+configurationsApp.RepositoriesApp(builder.Services);
 
 var app = builder.Build();
 

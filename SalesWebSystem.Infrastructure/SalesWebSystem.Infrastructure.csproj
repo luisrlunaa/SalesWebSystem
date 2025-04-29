@@ -7,7 +7,6 @@
 	</PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SalesWebSystem.Application\SalesWebSystem.Application.csproj" />
     <ProjectReference Include="..\SalesWebSystem.Models\SalesWebSystem.Models.csproj" />
   </ItemGroup>
 

@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\SalesWebSystem.Models\SalesWebSystem.Models.csproj" />
+	<ProjectReference Include="..\SalesWebSystem.Infrastructure\SalesWebSystem.Infrastructure.csproj" />
   </ItemGroup>
 
 </Project>
