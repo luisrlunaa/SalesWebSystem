@@ -17,6 +17,11 @@ namespace SalesWebSystem.Application.Services
             services.AddScoped<IProductsRepositories, ProductsRepositories>();
             services.AddScoped<IClientsRepositories, ClientsRepositories>();
             services.AddScoped<IUsersRepositories, UsersRepositories>();
+            services.AddScoped<ISalesRepositories, SalesRepositories>();
+            services.AddScoped<INCFRepositories, NCFRepositories>();
+            services.AddScoped<IPaymentsRepositories, PaymentsRepositories>();
+            services.AddScoped<IExpensesRepositories, ExpensesRepositories>();
+            services.AddScoped<ITypesRepositories, TypesRepositories>();
         }
     }
 }
