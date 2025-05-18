@@ -17,6 +17,8 @@ namespace SalesWebSystem.Infrastructure.Repositories
             await _context.Tipo_trabajo.ToListAsync();
         public async Task<List<tipoGOma>> CategoryTypeList() =>
             await _context.tipoGOma.ToListAsync();
+        public async Task<List<Categoria>> CategoryList() =>
+            await _context.categorias.ToListAsync();
 
         // Get
         public async Task<Tipo_factura?> InvoiceTypeById(int id) =>
@@ -25,6 +27,8 @@ namespace SalesWebSystem.Infrastructure.Repositories
             await _context.Tipo_trabajo.FirstOrDefaultAsync(x => x.id == id);
         public async Task<tipoGOma?> CategoryTypeById(int id) =>
             await _context.tipoGOma.FirstOrDefaultAsync(x => x.id == id);
+        public async Task<Categoria?> CategoryById(int id) =>
+            await _context.categorias.FirstOrDefaultAsync(x => x.IdCategoria == id);
 
         // Add
         public async Task<Tipo_factura> AddInvoiceType(Tipo_factura type)
@@ -45,6 +49,12 @@ namespace SalesWebSystem.Infrastructure.Repositories
             var committed = await CommitTransactionAsync();
             return committed ? type : null;
         }
+        public async Task<Categoria> AddCategory(Categoria category)
+        {
+            await _context.categorias.AddAsync(category);
+            var committed = await CommitTransactionAsync();
+            return committed ? category : null;
+        }
 
         // Update
         public async Task<Tipo_factura> UpdateInvoiceType(Tipo_factura type)
@@ -64,6 +74,12 @@ namespace SalesWebSystem.Infrastructure.Repositories
             _context.tipoGOma.Update(type);
             var committed = await CommitTransactionAsync();
             return committed ? type : null;
+        }
+        public async Task<Categoria> UpdateCategory(Categoria category)
+        {
+            _context.categorias.Update(category);
+            var committed = await CommitTransactionAsync();
+            return committed ? category : null;
         }
 
         // Delete
@@ -97,6 +113,16 @@ namespace SalesWebSystem.Infrastructure.Repositories
             var committed = await CommitTransactionAsync();
             return committed ? type : null;
         }
+        public async Task<Categoria?> DeleteCategoryById(int id)
+        {
+            var categoria = await CategoryById(id);
+            if (categoria is null)
+                return null;
+
+            _context.categorias.Remove(categoria);
+            var committed = await CommitTransactionAsync();
+            return committed ? categoria : null;
+        }
 
         // Exists
         public async Task<bool> ExitInvoiceTypeBytypeId(int id) =>
@@ -105,5 +131,7 @@ namespace SalesWebSystem.Infrastructure.Repositories
             await _context.Tipo_trabajo.AnyAsync(x => x.id == id);
         public async Task<bool> ExitCategoryTypeBytypeId(int id) =>
             await _context.tipoGOma.AnyAsync(x => x.id == id);
+        public async Task<bool> ExitCategoryById(int id) =>
+            await _context.categorias.AnyAsync(x => x.IdCategoria == id);
     }
 }

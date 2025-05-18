@@ -22,6 +22,7 @@ namespace SalesWebSystem.Application.Services
             services.AddScoped<IPaymentsRepositories, PaymentsRepositories>();
             services.AddScoped<IExpensesRepositories, ExpensesRepositories>();
             services.AddScoped<ITypesRepositories, TypesRepositories>();
+            services.AddScoped<IBusinessRepositories, BusinessRepositories>();
         }
     }
 }
