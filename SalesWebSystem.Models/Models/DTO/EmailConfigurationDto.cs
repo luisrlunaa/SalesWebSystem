@@ -1,6 +1,6 @@
 ﻿namespace SalesWebSystem.Application.Services.Email
 {
-    public class EmailConfiguration
+    public class EmailConfigurationDto
     {
         public string From { get; set; }
         public string SmtpServer { get; set; }

@@ -7,9 +7,9 @@ namespace SalesWebSystem.Application.Services.Email
     public class EmailSender : IEmailSender
     {
 
-        private readonly EmailConfiguration _emailConfig;
+        private readonly EmailConfigurationDto _emailConfig;
 
-        public EmailSender(EmailConfiguration emailConfig)
+        public EmailSender(EmailConfigurationDto emailConfig)
         {
             _emailConfig = emailConfig;
         }

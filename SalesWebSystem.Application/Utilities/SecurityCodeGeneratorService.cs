@@ -31,7 +31,7 @@ namespace SalesWebSystem.Application.Utilities
                 if (string.IsNullOrWhiteSpace(Correo))
                     throw new Exception("Correo no encontrado");
 
-                var message = new Message(new string[] { Correo }, $"Código de Validación del Sistema de Ventas e Inventario {codigo}", null, null);
+                var message = new MessageDto(new string[] { Correo }, $"Código de Validación del Sistema de Ventas e Inventario {codigo}", null, null);
                 if (message != null)
                     await _emailSender.SendEmailAsync(message);
 
