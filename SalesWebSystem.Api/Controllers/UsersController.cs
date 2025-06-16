@@ -2,11 +2,9 @@
 
 namespace SalesWebSystem.Api.Controllers
 {
-    public class UsersController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class UsersController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }

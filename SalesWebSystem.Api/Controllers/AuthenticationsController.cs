@@ -2,11 +2,9 @@
 
 namespace SalesWebSystem.Api.Controllers
 {
-    public class AuthenticationsController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class AuthenticationsController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }

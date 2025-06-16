@@ -11,6 +11,7 @@ namespace SalesWebSystem.Infrastructure.Repositories.Abstracts
         Task<List<NomEmp>> BusinessInfoList();
 
         // Get
+        Task<Caja?> LastBox();
         Task<Caja?> BoxById(int id);
         Task<Cuadre?> CashBalanceById(int id);
         Task<Licencia?> LicenseById(int id);

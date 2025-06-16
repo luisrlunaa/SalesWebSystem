@@ -1,4 +1,4 @@
-﻿namespace SalesWebSystem.Application.Services.Email
+﻿namespace SalesWebSystem.Application.Services.Abstracts
 {
     public interface IEmailSender
     {

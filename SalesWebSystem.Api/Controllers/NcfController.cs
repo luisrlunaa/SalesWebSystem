@@ -2,11 +2,9 @@
 
 namespace SalesWebSystem.Api.Controllers
 {
-    public class NcfController : Controller
+    [ApiController]
+    [Route("api/[controller]")]
+    public class NcfController : ControllerBase
     {
-        public IActionResult Index()
-        {
-            return View();
-        }
     }
 }

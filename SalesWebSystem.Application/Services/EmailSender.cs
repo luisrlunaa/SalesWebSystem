@@ -1,7 +1,9 @@
 ﻿using MailKit.Net.Smtp;
 using MimeKit;
+using SalesWebSystem.Application.Services.Abstracts;
+using SalesWebSystem.Application.Services.Email;
 
-namespace SalesWebSystem.Application.Services.Email
+namespace SalesWebSystem.Application.Services
 {
 
     public class EmailSender : IEmailSender

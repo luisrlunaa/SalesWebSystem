@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore.Http;
+using SalesWebSystem.Application.Services.Abstracts;
 using SalesWebSystem.Application.Utilities;
 using SalesWebSystem.Application.ViewModels;
 
-namespace SalesWebSystem.Application.Services.Print
+namespace SalesWebSystem.Application.Services
 {
     public class PrintFunctions : IPrintFunctions
     {

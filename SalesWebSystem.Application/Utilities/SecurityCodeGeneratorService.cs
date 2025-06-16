@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.Http;
-using SalesWebSystem.Application.Services.Email;
+using SalesWebSystem.Application.Services;
+using SalesWebSystem.Application.Services.Abstracts;
 using SalesWebSystem.Application.Utilities.Functions;
 
 namespace SalesWebSystem.Application.Utilities
@@ -31,7 +32,7 @@ namespace SalesWebSystem.Application.Utilities
                 if (string.IsNullOrWhiteSpace(Correo))
                     throw new Exception("Correo no encontrado");
 
-                var message = new MessageDto(new string[] { Correo }, $"Código de Validación del Sistema de Ventas e Inventario {codigo}", null, null);
+                var message = new Message(new string[] { Correo }, $"Código de Validación del Sistema de Ventas e Inventario {codigo}", null, null);
                 if (message != null)
                     await _emailSender.SendEmailAsync(message);
 

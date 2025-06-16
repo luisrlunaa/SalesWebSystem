@@ -1,4 +1,5 @@
 ﻿using Microsoft.Extensions.DependencyInjection;
+using SalesWebSystem.Application.Services.Abstracts;
 using SalesWebSystem.Infrastructure.Repositories;
 using SalesWebSystem.Infrastructure.Repositories.Abstracts;
 
@@ -8,7 +9,7 @@ namespace SalesWebSystem.Application.Services
     {
         public void ServicesApp(IServiceCollection services)
         {
-            //services.AddScoped<IServicioConsultasDgii, ServicioConsultasWebDgii>();
+            services.AddScoped<IBusinessServices, BusinessServices>();
         }
 
         public void RepositoriesApp(IServiceCollection services)

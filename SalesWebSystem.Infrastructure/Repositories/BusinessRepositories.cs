@@ -21,6 +21,8 @@ namespace SalesWebSystem.Infrastructure.Repositories
             await _context.NomEmps.ToListAsync();
 
         // Get
+        public async Task<Caja?> LastBox() =>
+            await _context.Cajas.LastOrDefaultAsync();
         public async Task<Caja?> BoxById(int id) =>
             await _context.Cajas.FirstOrDefaultAsync(x => x.id_caja == id);
         public async Task<Cuadre?> CashBalanceById(int id) =>

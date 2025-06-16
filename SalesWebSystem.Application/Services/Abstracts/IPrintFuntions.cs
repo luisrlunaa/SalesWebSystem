@@ -1,4 +1,4 @@
-﻿namespace SalesWebSystem.Application.Services.Print
+﻿namespace SalesWebSystem.Application.Services.Abstracts
 {
     public interface IPrintFunctions
     {
