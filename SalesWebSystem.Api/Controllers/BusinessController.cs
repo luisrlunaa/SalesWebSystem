@@ -18,7 +18,20 @@ namespace SalesWebSystem.Api.Controllers
         public ActionResult<BoxDTO> GetLastBoxId()
         {
             var box = _businessServices.LastBox();
-            if (box == null) return NotFound();
+            if (box == null) 
+                return NotFound();
+
+            return Ok(box);
+        }
+
+
+        [HttpGet("GetBusiness")]
+        public ActionResult<BoxDTO> GetBusiness(int? Id)
+        {
+            var box = _businessServices.LastBox();
+            if (box == null)
+                return NotFound();
+
             return Ok(box);
         }
     }

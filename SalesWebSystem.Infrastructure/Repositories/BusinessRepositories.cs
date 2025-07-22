@@ -13,8 +13,10 @@ namespace SalesWebSystem.Infrastructure.Repositories
         // List
         public async Task<List<Caja>> BoxesList() =>
             await _context.Cajas.ToListAsync();
-        public async Task<List<Cuadre>> CashBalanceList() =>
-            await _context.Cuadre.ToListAsync();
+        public async Task<List<Caja?>> BoxesBybusinessId(int businessId) =>
+            await _context.Cajas.Where(x => x.id_business == businessId).ToListAsync();
+        public async Task<List<Cuadre>> CashBalanceList(int businessId) =>
+            await _context.Cuadre.Where(x => x.id_business == businessId).ToListAsync();
         public async Task<List<Licencia>> LicensesList() =>
             await _context.Licencia.ToListAsync();
         public async Task<List<NomEmp>> BusinessInfoList() =>
@@ -25,8 +27,16 @@ namespace SalesWebSystem.Infrastructure.Repositories
             await _context.Cajas.LastOrDefaultAsync();
         public async Task<Caja?> BoxById(int id) =>
             await _context.Cajas.FirstOrDefaultAsync(x => x.id_caja == id);
+        public async Task<Caja?> LastBoxIdbusinessId(int businessId) =>
+            await _context.Cajas.FirstOrDefaultAsync(x => x.id_business == businessId);
+        public async Task<Caja?> BoxByIdbusinessId(int id, int businessId) =>
+            await _context.Cajas.FirstOrDefaultAsync(x => x.id_caja == id && x.id_business == businessId);
         public async Task<Cuadre?> CashBalanceById(int id) =>
             await _context.Cuadre.FirstOrDefaultAsync(x => x.id == id);
+        public async Task<Cuadre?> CashBalanceByIdbusinessId(int id, int businessId) =>
+            await _context.Cuadre.FirstOrDefaultAsync(x => x.id == id && x.id_business == businessId);
+        public async Task<Cuadre?> CashBalanceByDatebusinessId(int businessId, DateTime date) =>
+            await _context.Cuadre.FirstOrDefaultAsync(x => x.fecha.Date == date.Date && x.id_business == businessId);
         public async Task<Licencia?> LicenseById(int id) =>
             await _context.Licencia.FirstOrDefaultAsync(x => x.id == id);
         public async Task<NomEmp?> BusinessInfoById(int id) =>
@@ -86,52 +96,52 @@ namespace SalesWebSystem.Infrastructure.Repositories
         }
 
         // Delete
-        public async Task<Caja?> DeleteBoxById(int id)
+        public async Task<bool> DeleteBoxById(int id, int businessId)
         {
-            var input = await BoxById(id);
+            var input = await BoxByIdbusinessId(id, businessId);
             if (input is null)
-                return null;
+                return false;
 
             _context.Cajas.Remove(input);
             var committed = await CommitTransactionAsync();
-            return committed ? input : null;
+            return committed;
         }
-        public async Task<Cuadre?> DeleteCashBalanceById(int id)
+        public async Task<bool> DeleteCashBalanceById(int id, int businessId)
         {
-            var input = await CashBalanceById(id);
+            var input = await CashBalanceByIdbusinessId(id, businessId);
             if (input is null)
-                return null;
+                return false;
 
             _context.Cuadre.Remove(input);
             var committed = await CommitTransactionAsync();
-            return committed ? input : null;
+            return committed;
         }
-        public async Task<Licencia?> DeleteLicenseById(int id)
+        public async Task<bool> DeleteLicenseById(int id)
         {
             var input = await LicenseById(id);
             if (input is null)
-                return null;
+                return false;
 
             _context.Licencia.Remove(input);
             var committed = await CommitTransactionAsync();
-            return committed ? input : null;
+            return committed;
         }
-        public async Task<NomEmp?> DeleteBusinessInfoById(int id)
+        public async Task<bool> DeleteBusinessInfoById(int id)
         {
             var input = await BusinessInfoById(id);
             if (input is null)
-                return null;
+                return false;
 
             _context.NomEmps.Remove(input);
             var committed = await CommitTransactionAsync();
-            return committed ? input : null;
+            return committed;
         }
 
         // Exists
-        public async Task<bool> ExitBoxById(int id) =>
-            await _context.Cajas.AnyAsync(x => x.id_caja == id);
-        public async Task<bool> ExitCashBalanceById(int id) =>
-            await _context.Cuadre.AnyAsync(x => x.id == id);
+        public async Task<bool> ExitBoxById(int id, int businessId) =>
+            await _context.Cajas.AnyAsync(x => x.id_caja == id && x.id_business == businessId);
+        public async Task<bool> ExitCashBalanceById(int id, int businessId) =>
+            await _context.Cuadre.AnyAsync(x => x.id == id && x.id_business == businessId);
         public async Task<bool> ExitLicenseById(int id) =>
             await _context.Licencia.AnyAsync(x => x.id == id);
         public async Task<bool> ExitBusinessInfoById(int id) =>

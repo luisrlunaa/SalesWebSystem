@@ -3,6 +3,7 @@
     public class BoxDTO
     {
         public int Id { get; set; }
+        public int BusinessId { get; set; }
         public decimal Initial { get; set; }
         public decimal Final { get; set; }
         public decimal Actual { get; set; }

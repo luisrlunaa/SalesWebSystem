@@ -1,4 +1,5 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace SalesWebSystem.Infrastructure.Data.Entities
 {
@@ -10,6 +11,8 @@ namespace SalesWebSystem.Infrastructure.Data.Entities
         [Required]
         public decimal monto { get; set; }
         public DateTime fecha { get; set; }
+        [NotMapped]
+        public int id_business { get; set; }
 
         public Cuadre()
         {
