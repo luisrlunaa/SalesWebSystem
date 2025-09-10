@@ -74,7 +74,7 @@ namespace SalesWebSystem.Application.Services
             if (!exist)
                 return false;
 
-            return await _businessRepositories.DeleteBoxById(Id);
+            return await _businessRepositories.DeleteBoxById(Id, businessId);
         }
 
         //Balances
@@ -139,7 +139,7 @@ namespace SalesWebSystem.Application.Services
             if (!exist)
                 return false;
 
-            return await _businessRepositories.DeleteCashBalanceById(Id);
+            return await _businessRepositories.DeleteCashBalanceById(Id, businessId);
         }
 
         #region Helpers
